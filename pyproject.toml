@@ -5,16 +5,28 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "vaishnavi-bot"
 version = "1.0.0"
-description = "VaishnaviBot - Conversational bot suite with voice synthesis, action hooks, and gateway integration"
+description = "A Hindi-speaking conversational assistant with optional voice output and action hooks"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "python-dotenv>=1.0.0",
 ]
 
+# Both are optional. brain.py returns a plain echo without openai, and
+# voice.py prints to stdout without pyttsx3 -- so the bot runs with neither.
+[project.optional-dependencies]
+llm = ["openai>=1.0"]
+voice = ["pyttsx3>=2.90"]
+
+[project.scripts]
+vaishnavibot = "vaishnavibot.main:run"
+
+[tool.setuptools]
+packages = ["vaishnavibot"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["VaishnaviBot", "."]
+pythonpath = ["."]
 
 [tool.ruff]
 line-length = 120

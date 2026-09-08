@@ -2,11 +2,11 @@
 
 from unittest.mock import MagicMock
 
-import config
-from actions import post_social, send_whatsapp
-from brain import ask_brain
-from main import run as bot_run
-from voice import speak
+from vaishnavibot import config
+from vaishnavibot.actions import post_social, send_whatsapp
+from vaishnavibot.brain import ask_brain
+from vaishnavibot.main import run as bot_run
+from vaishnavibot.voice import speak
 
 
 def test_config():

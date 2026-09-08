@@ -1,5 +1,5 @@
-from brain import ask_brain
-from voice import speak
+from .brain import ask_brain
+from .voice import speak
 
 
 def run(input_source=input):
