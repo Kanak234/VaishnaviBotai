@@ -1,5 +1,10 @@
 def send_whatsapp(msg):
-    print(f"[HOOK] WhatsApp message: {msg}")
+    output = f"[HOOK] WhatsApp message: {msg}"
+    print(output)
+    return output
+
 
 def post_social(text):
-    print(f"[HOOK] Social Post: {text}")
+    output = f"[HOOK] Social Post: {text}"
+    print(output)
+    return output

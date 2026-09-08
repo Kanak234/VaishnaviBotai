@@ -1,12 +1,23 @@
-import pyttsx3
+try:
+    import pyttsx3
 
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
+    try:
+        engine = pyttsx3.init()
+        voices = engine.getProperty("voices")
+        if voices and len(voices) > 1:
+            engine.setProperty("voice", voices[1].id)
+    except Exception:
+        engine = None
+except ImportError:
+    engine = None
 
-# Select female voice if available
-if len(voices) > 1:
-    engine.setProperty('voice', voices[1].id)
 
 def speak(text):
-    engine.say(text)
-    engine.runAndWait()
+    if engine is not None:
+        try:
+            engine.say(text)
+            engine.runAndWait()
+            return
+        except Exception:
+            pass
+    print(f"[VOICE]: {text}")
