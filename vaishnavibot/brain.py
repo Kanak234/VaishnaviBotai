@@ -1,4 +1,4 @@
-from config import OPENAI_API_KEY
+from .config import OPENAI_API_KEY
 
 try:
     from openai import OpenAI
